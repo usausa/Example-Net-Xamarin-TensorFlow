@@ -39,9 +39,6 @@ public class MainActivity : Xamarin.Forms.Platform.Android.FormsAppCompatActivit
     [AllowNull]
     private DeviceManager deviceManager;
 
-    [AllowNull]
-    private KeyInputDriver keyInputDriver;
-
     protected override void OnCreate(Bundle savedInstanceState)
     {
         SetTheme(Resource.Style.MainTheme);
@@ -52,9 +49,6 @@ public class MainActivity : Xamarin.Forms.Platform.Android.FormsAppCompatActivit
         TaskScheduler.UnobservedTaskException += (_, args) => CrashReport(args.Exception);
         AndroidEnvironment.UnhandledExceptionRaiser += (_, args) => CrashReport(args.Exception);
 
-        // Database
-        SQLitePCL.Batteries_V2.Init();
-
         // Barcode
         ZXing.Net.Mobile.Forms.Android.Platform.Init();
 
@@ -63,13 +57,9 @@ public class MainActivity : Xamarin.Forms.Platform.Android.FormsAppCompatActivit
 
         // Components
         UserDialogs.Init(this);
-        Rg.Plugins.Popup.Popup.Init(this);
 
         Xamarin.Essentials.Platform.Init(this, savedInstanceState);
         Xamarin.Forms.Forms.Init(this, savedInstanceState);
-
-        // Key input
-        keyInputDriver = new KeyInputDriver(this);
 
         // Boot
         LoadApplication(new App(new ComponentProvider(this)));
@@ -84,21 +74,6 @@ public class MainActivity : Xamarin.Forms.Platform.Android.FormsAppCompatActivit
         Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
         base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-    }
-
-    public override void OnBackPressed()
-    {
-        Rg.Plugins.Popup.Popup.SendBackPressed(base.OnBackPressed);
-    }
-
-    public override bool DispatchKeyEvent(KeyEvent? e)
-    {
-        if (keyInputDriver.Process(e!))
-        {
-            return true;
-        }
-
-        return base.DispatchKeyEvent(e);
     }
 
     private static void CrashReport(Exception ex)

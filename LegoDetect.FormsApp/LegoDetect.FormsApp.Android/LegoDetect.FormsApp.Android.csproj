@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -68,9 +68,6 @@
     <PackageReference Include="Acr.UserDialogs">
       <Version>7.2.0.534</Version>
     </PackageReference>
-    <PackageReference Include="Rg.Plugins.Popup">
-      <Version>2.0.0.14</Version>
-    </PackageReference>
     <PackageReference Include="SkiaSharp">
       <Version>2.80.3</Version>
     </PackageReference>
@@ -104,19 +101,7 @@
   <ItemGroup>
     <Compile Include="Components\Device\DeviceManager.cs" />
     <Compile Include="Components\Dialog\ApplicationDialog.cs" />
-    <Compile Include="Effects\BorderPlatformEffect.cs" />
-    <Compile Include="Effects\Effects.cs" />
-    <Compile Include="Effects\InputFilterPlatformEffect.cs" />
-    <Compile Include="Effects\TextAlignmentPlatformEffect.cs" />
-    <Compile Include="Helpers\AlignmentExtensions.cs" />
-    <Compile Include="Helpers\JavaObjectExtensions.cs" />
-    <Compile Include="Helpers\KeyboardExtensions.cs" />
-    <Compile Include="KeyInputDriver.cs" />
     <Compile Include="MainActivity.cs" />
-    <Compile Include="Renderers\PhysicalKeyButtonRenderer.cs" />
-    <Compile Include="Renderers\PhysicalKeyCheckBoxRenderer.cs" />
-    <Compile Include="Renderers\PhysicalKeyEntryRenderer.cs" />
-    <Compile Include="Renderers\PhysicalKeyListViewRenderer.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

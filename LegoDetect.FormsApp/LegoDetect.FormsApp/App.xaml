@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:sd="clr-namespace:Smart.Forms.Data;assembly=Smart.Forms"
              xmlns:resources="clr-namespace:LegoDetect.FormsApp.Resources;assembly=LegoDetect.FormsApp"
-             xmlns:effects="clr-namespace:LegoDetect.FormsApp.Effects;assembly=LegoDetect.FormsApp"
              x:Class="LegoDetect.FormsApp.App">
     <Application.Resources>
 
@@ -441,83 +440,12 @@
                 </Setter>
             </Style>
 
-            <Style x:Key="SelectButton"
-                   TargetType="Button">
-                <Setter Property="CornerRadius" Value="0" />
-                <Setter Property="FontSize" Value="{StaticResource BigSize}" />
-                <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="TextColor" Value="Black" />
-                <Setter Property="Padding" Value="3,0" />
-                <Setter Property="effects:TextAlignment.On" Value="True" />
-                <Setter Property="effects:TextAlignment.Horizontal" Value="Start" />
-                <Setter Property="VisualStateManager.VisualStateGroups">
-                    <VisualStateGroupList>
-                        <VisualStateGroup x:Name="CommonStates">
-                            <VisualState x:Name="Normal">
-                                <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="White" />
-                                </VisualState.Setters>
-                            </VisualState>
-                            <VisualState x:Name="Focused">
-                                <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{StaticResource SelectFocusColor}" />
-                                </VisualState.Setters>
-                            </VisualState>
-                            <VisualState x:Name="Disabled">
-                                <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{StaticResource DisabledColor}" />
-                                </VisualState.Setters>
-                            </VisualState>
-                        </VisualStateGroup>
-                    </VisualStateGroupList>
-                </Setter>
-            </Style>
-
             <Style x:Key="ButtonBorderFrame"
                    TargetType="Frame">
                 <Setter Property="BorderColor" Value="{StaticResource BorderColor}" />
                 <Setter Property="HasShadow" Value="False" />
                 <Setter Property="CornerRadius" Value="0" />
                 <Setter Property="Padding" Value="1" />
-            </Style>
-
-            <!-- ================================================================================ -->
-            <!-- CheckBox -->
-            <!-- ================================================================================ -->
-
-            <Style x:Key="DefaultCheckBox"
-                   TargetType="CheckBox" />
-
-            <!-- ================================================================================ -->
-            <!-- Entry -->
-            <!-- ================================================================================ -->
-
-            <Style x:Key="InputEntry"
-                   TargetType="Entry">
-                <Setter Property="FontSize" Value="{StaticResource BigSize}" />
-                <Setter Property="effects:Border.Color" Value="{StaticResource BorderColor}" />
-                <Setter Property="effects:Border.Width" Value="1" />
-                <Setter Property="VisualStateManager.VisualStateGroups">
-                    <VisualStateGroupList>
-                        <VisualStateGroup x:Name="CommonStates">
-                            <VisualState x:Name="Normal">
-                                <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="Default" />
-                                </VisualState.Setters>
-                            </VisualState>
-                            <VisualState x:Name="Focused">
-                                <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{StaticResource SelectFocusColor}" />
-                                </VisualState.Setters>
-                            </VisualState>
-                            <VisualState x:Name="Disabled">
-                                <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{StaticResource DisabledColor}" />
-                                </VisualState.Setters>
-                            </VisualState>
-                        </VisualStateGroup>
-                    </VisualStateGroupList>
-                </Setter>
             </Style>
 
             <!-- ================================================================================ -->

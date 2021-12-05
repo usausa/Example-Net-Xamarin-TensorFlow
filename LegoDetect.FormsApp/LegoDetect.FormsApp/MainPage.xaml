@@ -4,7 +4,6 @@
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              xmlns:sn="clr-namespace:Smart.Navigation;assembly=Smart.Navigation.Forms"
              xmlns:sr="clr-namespace:Smart.Forms.Resolver;assembly=Smart.Forms"
-             xmlns:input="clr-namespace:LegoDetect.FormsApp.Input;assembly=LegoDetect.FormsApp"
              xmlns:shell="clr-namespace:LegoDetect.FormsApp.Shell;assembly=LegoDetect.FormsApp"
              xmlns:local="clr-namespace:LegoDetect.FormsApp;assembly=LegoDetect.FormsApp"
              x:Class="LegoDetect.FormsApp.MainPage"
@@ -17,7 +16,6 @@
 
     <ContentPage.Behaviors>
         <shell:ShellUpdateBehavior Navigator="{Binding Navigator, Mode=OneTime}" />
-        <input:InputControlBehavior />
     </ContentPage.Behaviors>
 
     <Grid Style="{StaticResource MainGrid}">
@@ -56,22 +54,18 @@
             <Button Grid.Column="0"
                     Style="{StaticResource FunctionButton1}"
                     Command="{Binding Function1Command}"
-                    input:Shortcut.Key="Function1"
                     Text="{Binding Function1Text.Value}" />
             <Button Grid.Column="1"
                     Style="{StaticResource FunctionButton2}"
                     Command="{Binding Function2Command}"
-                    input:Shortcut.Key="Function4"
                     Text="{Binding Function2Text.Value}" />
             <Button Grid.Column="2"
                     Style="{StaticResource FunctionButton3}"
                     Command="{Binding Function3Command}"
-                    input:Shortcut.Key="Function4"
                     Text="{Binding Function3Text.Value}" />
             <Button Grid.Column="3"
                     Style="{StaticResource FunctionButton4}"
                     Command="{Binding Function4Command}"
-                    input:Shortcut.Key="Function4"
                     Text="{Binding Function4Text.Value}" />
         </Grid>
     </Grid>

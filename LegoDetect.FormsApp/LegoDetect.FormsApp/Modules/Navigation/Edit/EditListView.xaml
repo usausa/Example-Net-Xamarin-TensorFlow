@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:si="clr-namespace:Smart.Forms.Interactivity;assembly=Smart.Forms"
+             xmlns:sr="clr-namespace:Smart.Forms.Resolver;assembly=Smart.Forms"
+             xmlns:input="clr-namespace:LegoDetect.FormsApp.Input;assembly=LegoDetect.FormsApp"
+             xmlns:shell="clr-namespace:LegoDetect.FormsApp.Shell;assembly=LegoDetect.FormsApp"
+             xmlns:modules="clr-namespace:LegoDetect.FormsApp.Modules.Navigation.Edit;assembly=LegoDetect.FormsApp"
+             xmlns:entity="clr-namespace:LegoDetect.FormsApp.Models.Entity;assembly=LegoDetect.FormsApp"
+             x:Class="LegoDetect.FormsApp.Modules.Navigation.Edit.EditListView"
+             x:DataType="{x:Type modules:EditListViewModel}"
+             sr:BindingContextResolver.Type="{x:Type modules:EditListViewModel}"
+             shell:ShellProperty.Title="EditList"
+             shell:ShellProperty.Function1Text="Back"
+             shell:ShellProperty.Function4Text="New"
+             shell:ShellProperty.Function1Enabled="True"
+             shell:ShellProperty.Function4Enabled="True">
+
+    <StackLayout Style="{StaticResource FillLayout}">
+        <ListView Style="{StaticResource ItemListView}"
+                  ItemsSource="{Binding Items}">
+            <ListView.Behaviors>
+                <si:ListViewSelectedToCommandBehavior Command="{Binding SelectCommand}" />
+                <input:ListViewShortcutBehavior KeyCode="Del"
+                                                Command="{Binding DeleteCommand}" />
+            </ListView.Behaviors>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="entity:WorkEntity">
+                    <ViewCell>
+                        <Grid Style="{StaticResource ItemListCellGrid}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="6*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0"
+                                   Style="{StaticResource ListItemLeftLabel}"
+                                   Text="{Binding Id}" />
+                            <Label Grid.Column="1"
+                                   Style="{StaticResource ListItemLeftLabel}"
+                                   Text="{Binding Name}" />
+                            <Button Grid.Column="2"
+                                    Style="{StaticResource ListItemButtonDanger}"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type modules:EditListViewModel}}, Path=DeleteCommand}"
+                                    CommandParameter="{Binding}"
+                                    Text="×" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentView>

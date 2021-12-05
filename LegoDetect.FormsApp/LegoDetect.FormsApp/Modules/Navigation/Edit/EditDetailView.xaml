@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sm="clr-namespace:Smart.Forms.Markup;assembly=Smart.Forms"
+             xmlns:sr="clr-namespace:Smart.Forms.Resolver;assembly=Smart.Forms"
+             xmlns:shell="clr-namespace:LegoDetect.FormsApp.Shell;assembly=LegoDetect.FormsApp"
+             xmlns:modules="clr-namespace:LegoDetect.FormsApp.Modules.Navigation.Edit;assembly=LegoDetect.FormsApp"
+             x:Class="LegoDetect.FormsApp.Modules.Navigation.Edit.EditDetailView"
+             x:DataType="{x:Type modules:EditDetailViewModel}"
+             sr:BindingContextResolver.Type="{x:Type modules:EditDetailViewModel}"
+             shell:ShellProperty.Title="{Binding IsUpdate.Value, StringFormat='EditDetail{0}', Converter={sm:BoolToText True='Update', False='New'}}"
+             shell:ShellProperty.Function1Text="Cancel"
+             shell:ShellProperty.Function4Text="Update"
+             shell:ShellProperty.Function1Enabled="True"
+             shell:ShellProperty.Function4Enabled="{Binding Name.Value, Converter={StaticResource NotEmptyConverter}}">
+
+    <StackLayout Style="{StaticResource FillLayout}">
+        <Entry Style="{StaticResource InputEntry}"
+               Text="{Binding Name.Value}" />
+    </StackLayout>
+
+</ContentView>

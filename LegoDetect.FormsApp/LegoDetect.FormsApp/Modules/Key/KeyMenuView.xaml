@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sr="clr-namespace:Smart.Forms.Resolver;assembly=Smart.Forms"
+             xmlns:shell="clr-namespace:LegoDetect.FormsApp.Shell;assembly=LegoDetect.FormsApp"
+             xmlns:markup="clr-namespace:LegoDetect.FormsApp.Markup;assembly=LegoDetect.FormsApp"
+             xmlns:modules="clr-namespace:LegoDetect.FormsApp.Modules.Key;assembly=LegoDetect.FormsApp"
+             x:Class="LegoDetect.FormsApp.Modules.Key.KeyMenuView"
+             x:DataType="{x:Type modules:KeyMenuViewModel}"
+             sr:BindingContextResolver.Type="{x:Type modules:KeyMenuViewModel}"
+             shell:ShellProperty.Title="Key"
+             shell:ShellProperty.Function1Text="Back"
+             shell:ShellProperty.Function1Enabled="True">
+
+    <Grid Style="{StaticResource FillGrid}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Button Grid.Row="0"
+                Style="{StaticResource MenuButton}"
+                Command="{Binding ForwardCommand}"
+                CommandParameter="{markup:ViewId KeyEntry}"
+                Text="Entry" />
+        <Button Grid.Row="1"
+                Style="{StaticResource MenuButton}"
+                Command="{Binding ForwardCommand}"
+                CommandParameter="{markup:ViewId KeyList}"
+                Text="List" />
+        <Button Grid.Row="2"
+                Style="{StaticResource MenuButton}"
+                Command="{Binding ForwardCommand}"
+                CommandParameter="{markup:ViewId KeyMisc}"
+                Text="Misc" />
+        <Button Grid.Row="3"
+                Style="{StaticResource MenuButton}"
+                Command="{Binding InformationCommand}"
+                Text="Information" />
+        <Button Grid.Row="4"
+                Style="{StaticResource MenuButton}"
+                Command="{Binding ConfirmCommand}"
+                Text="Confirm" />
+        <Button Grid.Row="5"
+                Style="{StaticResource MenuButton}"
+                Command="{Binding SelectCommand}"
+                Text="Select" />
+        <Button Grid.Row="6"
+                Style="{StaticResource MenuButton}"
+                IsEnabled="False"
+                Text="" />
+        <Button Grid.Row="7"
+                Style="{StaticResource MenuButton}"
+                IsEnabled="False"
+                Text="" />
+    </Grid>
+
+</ContentView>

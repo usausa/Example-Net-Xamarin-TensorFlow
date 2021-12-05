@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sr="clr-namespace:Smart.Forms.Resolver;assembly=Smart.Forms"
+             xmlns:shell="clr-namespace:LegoDetect.FormsApp.Shell;assembly=LegoDetect.FormsApp"
+             xmlns:modules="clr-namespace:LegoDetect.FormsApp.Modules.Database;assembly=LegoDetect.FormsApp"
+             x:Class="LegoDetect.FormsApp.Modules.Database.DatabaseView"
+             x:DataType="{x:Type modules:DatabaseViewModel}"
+             sr:BindingContextResolver.Type="{x:Type modules:DatabaseViewModel}"
+             shell:ShellProperty.Title="Database"
+             shell:ShellProperty.Function1Text="Back"
+             shell:ShellProperty.Function1Enabled="True">
+
+    <Grid Style="{StaticResource FillGrid}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Button Grid.Row="0"
+                Style="{StaticResource ActionButton}"
+                Command="{Binding InsertCommand}"
+                Text="Insert" />
+        <Button Grid.Row="1"
+                Style="{StaticResource ActionButton}"
+                Command="{Binding UpdateCommand}"
+                Text="Update" />
+        <Button Grid.Row="2"
+                Style="{StaticResource ActionButton}"
+                Command="{Binding DeleteCommand}"
+                Text="Delete" />
+        <Button Grid.Row="3"
+                Style="{StaticResource ActionButton}"
+                Command="{Binding QueryCommand}"
+                Text="Query" />
+
+        <Label Grid.Row="4"
+               Style="{StaticResource LeftValueLabel}"
+               Text="{Binding BulkDataCount.Value, StringFormat='Count: {0}'}" />
+        <Button Grid.Row="5"
+                Style="{StaticResource ActionButton}"
+                Command="{Binding BulkInsertCommand}"
+                Text="BulkInsert" />
+        <Button Grid.Row="6"
+                Style="{StaticResource ActionButton}"
+                Command="{Binding DeleteAllCommand}"
+                Text="DeleteAll" />
+        <Button Grid.Row="7"
+                Style="{StaticResource ActionButton}"
+                Command="{Binding QueryAllCommand}"
+                Text="QueryAll" />
+
+    </Grid>
+
+</ContentView>

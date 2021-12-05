@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sr="clr-namespace:Smart.Forms.Resolver;assembly=Smart.Forms"
+             xmlns:shell="clr-namespace:LegoDetect.FormsApp.Shell;assembly=LegoDetect.FormsApp"
+             xmlns:modules="clr-namespace:LegoDetect.FormsApp.Modules.Device;assembly=LegoDetect.FormsApp"
+             x:Class="LegoDetect.FormsApp.Modules.Device.DeviceLocationView"
+             x:DataType="{x:Type modules:DeviceLocationViewModel}"
+             sr:BindingContextResolver.Type="{x:Type modules:DeviceLocationViewModel}"
+             shell:ShellProperty.Title="Navigation"
+             shell:ShellProperty.Function1Text="Back"
+             shell:ShellProperty.Function1Enabled="True">
+
+    <Grid Style="{StaticResource FillGrid}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+    </Grid>
+
+</ContentView>

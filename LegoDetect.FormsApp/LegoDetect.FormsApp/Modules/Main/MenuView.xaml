@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sr="clr-namespace:Smart.Forms.Resolver;assembly=Smart.Forms"
+             xmlns:input="clr-namespace:LegoDetect.FormsApp.Input;assembly=LegoDetect.FormsApp"
+             xmlns:shell="clr-namespace:LegoDetect.FormsApp.Shell;assembly=LegoDetect.FormsApp"
+             xmlns:markup="clr-namespace:LegoDetect.FormsApp.Markup;assembly=LegoDetect.FormsApp"
+             xmlns:modules="clr-namespace:LegoDetect.FormsApp.Modules.Main;assembly=LegoDetect.FormsApp"
+             x:Class="LegoDetect.FormsApp.Modules.Main.MenuView"
+             x:DataType="{x:Type modules:MenuViewModel}"
+             sr:BindingContextResolver.Type="{x:Type modules:MenuViewModel}"
+             shell:ShellProperty.Title="Menu"
+             shell:ShellProperty.FunctionVisible="False">
+
+    <Grid Style="{StaticResource FillGrid}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Button Grid.Row="0"
+                Style="{StaticResource MenuButton}"
+                Command="{Binding ForwardCommand}"
+                CommandParameter="{markup:ViewId NavigationMenu}"
+                input:Shortcut.Key="Num1"
+                Text="1. Navigation" />
+        <Button Grid.Row="1"
+                Style="{StaticResource MenuButton}"
+                Command="{Binding ForwardCommand}"
+                CommandParameter="{markup:ViewId KeyMenu}"
+                input:Shortcut.Key="Num2"
+                Text="2. Key" />
+        <Button Grid.Row="2"
+                Style="{StaticResource MenuButton}"
+                Command="{Binding ForwardCommand}"
+                CommandParameter="{markup:ViewId Database}"
+                input:Shortcut.Key="Num3"
+                Text="3. Database" />
+        <Button Grid.Row="3"
+                Style="{StaticResource MenuButton}"
+                IsEnabled="False"
+                input:Shortcut.Key="Num4"
+                Text="4. Device" />
+        <Button Grid.Row="4"
+                Style="{StaticResource MenuButton}"
+                Command="{Binding ForwardCommand}"
+                CommandParameter="{markup:ViewId FrameworkMenu}"
+                input:Shortcut.Key="Num5"
+                Text="5. Smart" />
+        <Button Grid.Row="5"
+                Style="{StaticResource MenuButton}"
+                IsEnabled="False"
+                input:Shortcut.Key="Num6"
+                Text="6. Toolkit" />
+        <Button Grid.Row="6"
+                Style="{StaticResource MenuButton}"
+                IsEnabled="False"
+                input:Shortcut.Key="Num7"
+                Text="7. Component" />
+        <Button Grid.Row="7"
+                Style="{StaticResource MenuButton}"
+                IsEnabled="False"
+                input:Shortcut.Key="Num8"
+                Text="8. Interface" />
+    </Grid>
+
+</ContentView>

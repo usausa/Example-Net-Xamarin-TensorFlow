@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sr="clr-namespace:Smart.Forms.Resolver;assembly=Smart.Forms"
+             xmlns:shell="clr-namespace:LegoDetect.FormsApp.Shell;assembly=LegoDetect.FormsApp"
+             xmlns:modules="clr-namespace:LegoDetect.FormsApp.Modules.Navigation.Shared;assembly=LegoDetect.FormsApp"
+             x:Class="LegoDetect.FormsApp.Modules.Navigation.Shared.SharedMain1View"
+             x:DataType="{x:Type modules:SharedMain1ViewModel}"
+             sr:BindingContextResolver.Type="{x:Type modules:SharedMain1ViewModel}"
+             shell:ShellProperty.Title="SharedMain1"
+             shell:ShellProperty.Function1Text="◀️"
+             shell:ShellProperty.Function4Text="✔"
+             shell:ShellProperty.Function1Enabled="True"
+             shell:ShellProperty.Function4Enabled="True">
+
+    <StackLayout Style="{StaticResource FillLayout}">
+        <Label Style="{StaticResource LeftValueLabel}"
+               Text="{Binding No.Value}" />
+    </StackLayout>
+
+</ContentView>

@@ -10,7 +10,6 @@ using LegoDetect.FormsApp.Components.Dialog;
 using LegoDetect.FormsApp.Helpers;
 using LegoDetect.FormsApp.Modules;
 using LegoDetect.FormsApp.State;
-using LegoDetect.FormsApp.Usecase;
 
 using XamarinFormsComponents;
 
@@ -67,8 +66,6 @@ public partial class App
 
         config.BindSingleton<Configuration>();
         config.BindSingleton<Session>();
-
-        config.BindSingleton<DetectUsecase>();
 
         provider.RegisterComponents(config);
 

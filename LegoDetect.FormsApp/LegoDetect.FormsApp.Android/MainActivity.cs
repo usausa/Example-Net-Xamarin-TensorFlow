@@ -20,7 +20,9 @@ using LegoDetect.FormsApp.Components.Device;
 using LegoDetect.FormsApp.Components.Dialog;
 using LegoDetect.FormsApp.Droid.Components.Device;
 using LegoDetect.FormsApp.Droid.Components.Dialog;
+using LegoDetect.FormsApp.Droid.Services;
 using LegoDetect.FormsApp.Helpers;
+using LegoDetect.FormsApp.Services;
 
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 
@@ -97,6 +99,7 @@ public class MainActivity : Xamarin.Forms.Platform.Android.FormsAppCompatActivit
 
             config.Bind<IApplicationDialog>().To<ApplicationDialog>().InSingletonScope();
             config.Bind<IDeviceManager>().ToConstant(activity.deviceManager).InSingletonScope();
+            config.Bind<IObjectDetectService>().To<ObjectDetectService>().InSingletonScope();
         }
     }
 }

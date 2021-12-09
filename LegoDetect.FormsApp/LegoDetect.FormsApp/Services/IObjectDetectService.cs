@@ -1,6 +1,8 @@
 namespace LegoDetect.FormsApp.Services;
 
+using LegoDetect.FormsApp.Models;
+
 public interface IObjectDetectService
 {
-    ValueTask DetectAsync();
+    Task<DetectResult[]> DetectAsync(byte[] bytes);
 }

@@ -8,12 +8,12 @@ public class DetectResult
 
     public float Score { get; }
 
-    public RectangleF Position { get; }
+    public Rectangle Rectangle { get; }
 
-    public DetectResult(string label, float score, RectangleF position)
+    public DetectResult(string label, float score, Rectangle rectangle)
     {
         Label = label;
         Score = score;
-        Position = position;
+        Rectangle = rectangle;
     }
 }

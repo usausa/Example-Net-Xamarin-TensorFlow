@@ -1,5 +1,6 @@
 namespace LegoDetect.FormsApp.Droid.Services;
 
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -128,15 +129,14 @@ public class ObjectDetectService : IObjectDetectService
             var results = new DetectResult[detections];
             for (var i = 0; i < results.Length; i++)
             {
-                // TODO 位置確認
                 results[i] = new DetectResult(
                     labels[(int)detectedClasses[i]],
                     detectedScores[i],
-                    new System.Drawing.RectangleF(
-                        detectedBoxes[i][1],
-                        detectedBoxes[i][0],
-                        detectedBoxes[i][3],
-                        detectedBoxes[i][2]));
+                    new System.Drawing.Rectangle(
+                        (int)Math.Ceiling(detectedBoxes[i][1] * bitmap.Width),
+                        (int)Math.Ceiling(detectedBoxes[i][0] * bitmap.Height),
+                        (int)Math.Ceiling(detectedBoxes[i][3] * bitmap.Width),
+                        (int)Math.Ceiling(detectedBoxes[i][2] * bitmap.Height)));
             }
 
             Trace.EndSection();

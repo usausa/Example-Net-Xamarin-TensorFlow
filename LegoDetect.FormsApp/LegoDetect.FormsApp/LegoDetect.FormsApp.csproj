@@ -55,4 +55,13 @@
     <PackageReference Include="XamarinFormsComponents.Settings" Version="2.0.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Update="Modules\Detect\DetectCameraView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Modules\Detect\DetectResultView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sr="clr-namespace:Smart.Forms.Resolver;assembly=Smart.Forms"
+             xmlns:shell="clr-namespace:LegoDetect.FormsApp.Shell;assembly=LegoDetect.FormsApp"
+             xmlns:behaviors="clr-namespace:LegoDetect.FormsApp.Behaviors;assembly=LegoDetect.FormsApp"
+             xmlns:controls="clr-namespace:LegoDetect.FormsApp.Controls;assembly=LegoDetect.FormsApp"
+             xmlns:modules="clr-namespace:LegoDetect.FormsApp.Modules.Detect;assembly=LegoDetect.FormsApp"
+             x:Class="LegoDetect.FormsApp.Modules.Detect.DetectResultView"
+             x:DataType="{x:Type modules:DetectResultViewModel}"
+             sr:BindingContextResolver.Type="{x:Type modules:DetectResultViewModel}"
+             shell:ShellProperty.TitleVisible="False"
+             shell:ShellProperty.FunctionVisible="False">
+
+    <Grid Style="{StaticResource FillGrid}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <controls:DetectCanvasView Grid.Column="0"
+                                   DetectResult="{Binding Result.Value}">
+            <controls:DetectCanvasView.Behaviors>
+                <behaviors:LoadImageBehavior Request="{Binding LoadImageRequest}" />
+            </controls:DetectCanvasView.Behaviors>
+        </controls:DetectCanvasView>
+
+        <Grid Grid.Column="1"
+              Style="{StaticResource SideGrid}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Button Grid.Row="0"
+                    Style="{StaticResource SideButton}"
+                    Command="{Binding RetryCommand}"
+                    Text="&#xe15e;" />
+            <Button Grid.Row="1"
+                    Style="{StaticResource SideButton}"
+                    Command="{Binding CloseCommand}"
+                    Text="&#xe88a;" />
+        </Grid>
+    </Grid>
+
+</ContentView>

@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:sr="clr-namespace:Smart.Forms.Resolver;assembly=Smart.Forms"
              xmlns:shell="clr-namespace:LegoDetect.FormsApp.Shell;assembly=LegoDetect.FormsApp"
+             xmlns:markup="clr-namespace:LegoDetect.FormsApp.Markup;assembly=LegoDetect.FormsApp"
              xmlns:modules="clr-namespace:LegoDetect.FormsApp.Modules.Main;assembly=LegoDetect.FormsApp"
              x:Class="LegoDetect.FormsApp.Modules.Main.MenuView"
              x:DataType="{x:Type modules:MenuViewModel}"
@@ -18,14 +19,13 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <Button Grid.Row="0"
                 Style="{StaticResource MenuButton}"
-                IsEnabled="False"
-                Text="" />
+                Command="{Binding ForwardCommand}"
+                CommandParameter="{markup:ViewId DetectCamera}"
+                Text="Detect" />
         <Button Grid.Row="1"
                 Style="{StaticResource MenuButton}"
                 IsEnabled="False"
@@ -43,14 +43,6 @@
                 IsEnabled="False"
                 Text="" />
         <Button Grid.Row="5"
-                Style="{StaticResource MenuButton}"
-                IsEnabled="False"
-                Text="" />
-        <Button Grid.Row="6"
-                Style="{StaticResource MenuButton}"
-                IsEnabled="False"
-                Text="" />
-        <Button Grid.Row="7"
                 Style="{StaticResource MenuButton}"
                 IsEnabled="False"
                 Text="" />

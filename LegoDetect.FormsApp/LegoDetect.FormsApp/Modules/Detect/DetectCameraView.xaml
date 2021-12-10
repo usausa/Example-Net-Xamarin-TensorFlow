@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sr="clr-namespace:Smart.Forms.Resolver;assembly=Smart.Forms"
+             xmlns:shell="clr-namespace:LegoDetect.FormsApp.Shell;assembly=LegoDetect.FormsApp"
+             xmlns:behaviors="clr-namespace:LegoDetect.FormsApp.Behaviors;assembly=LegoDetect.FormsApp"
+             xmlns:modules="clr-namespace:LegoDetect.FormsApp.Modules.Detect;assembly=LegoDetect.FormsApp"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="LegoDetect.FormsApp.Modules.Detect.DetectCameraView"
+             x:DataType="{x:Type modules:DetectCameraViewModel}"
+             sr:BindingContextResolver.Type="{x:Type modules:DetectCameraViewModel}"
+             shell:ShellProperty.TitleVisible="False"
+             shell:ShellProperty.FunctionVisible="False">
+
+    <Grid Style="{StaticResource FillGrid}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <xct:CameraView Grid.Column="0"
+                        CameraOptions="Back" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <xct:CameraView.Behaviors>
+                <behaviors:CameraCaptureBehavior MaxSize="800"
+                                                 Request="{Binding CaptureRequest}" />
+            </xct:CameraView.Behaviors>
+        </xct:CameraView>
+
+        <Grid Grid.Column="1"
+              Style="{StaticResource SideGrid}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Button Grid.Row="0"
+                    Style="{StaticResource SideButton}"
+                    Command="{Binding CaptureCommand}"
+                    Text="&#xe3af;" />
+            <Button Grid.Row="1"
+                    Style="{StaticResource SideButton}"
+                    Command="{Binding BackCommand}"
+                    Text="&#xe88a;" />
+        </Grid>
+    </Grid>
+
+</ContentView>

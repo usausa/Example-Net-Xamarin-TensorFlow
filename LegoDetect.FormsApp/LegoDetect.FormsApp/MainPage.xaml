@@ -26,9 +26,11 @@
 
         <!-- header -->
         <BoxView Grid.Row="0"
-                 Style="{StaticResource TitleView}" />
+                 Style="{StaticResource TitleView}"
+                 IsVisible="{Binding TitleVisible.Value}" />
         <Label Grid.Row="0"
                Style="{StaticResource TitleLabel}"
+               IsVisible="{Binding TitleVisible.Value}"
                Text="{Binding Title.Value}" />
 
         <!-- view container -->

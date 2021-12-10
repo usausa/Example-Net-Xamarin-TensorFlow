@@ -4,6 +4,17 @@ using Xamarin.Forms;
 
 public static class ShellProperty
 {
+    public static readonly BindableProperty TitleVisibleProperty = BindableProperty.CreateAttached(
+        "TitleVisible",
+        typeof(bool),
+        typeof(ShellProperty),
+        true,
+        propertyChanged: PropertyChanged);
+
+    public static bool GetTitleVisible(BindableObject bindable) => (bool)bindable.GetValue(TitleVisibleProperty);
+
+    public static void SetTitleVisible(BindableObject bindable, bool value) => bindable.SetValue(TitleVisibleProperty, value);
+
     public static readonly BindableProperty TitleProperty = BindableProperty.CreateAttached(
         "Title",
         typeof(string),
@@ -57,28 +68,6 @@ public static class ShellProperty
 
     public static void SetFunction2Text(BindableObject bindable, string value) => bindable.SetValue(Function2TextProperty, value);
 
-    public static readonly BindableProperty Function3TextProperty = BindableProperty.CreateAttached(
-        "Function3Text",
-        typeof(string),
-        typeof(ShellProperty),
-        string.Empty,
-        propertyChanged: PropertyChanged);
-
-    public static string GetFunction3Text(BindableObject bindable) => (string)bindable.GetValue(Function3TextProperty);
-
-    public static void SetFunction3Text(BindableObject bindable, string value) => bindable.SetValue(Function3TextProperty, value);
-
-    public static readonly BindableProperty Function4TextProperty = BindableProperty.CreateAttached(
-        "Function4Text",
-        typeof(string),
-        typeof(ShellProperty),
-        string.Empty,
-        propertyChanged: PropertyChanged);
-
-    public static string GetFunction4Text(BindableObject bindable) => (string)bindable.GetValue(Function4TextProperty);
-
-    public static void SetFunction4Text(BindableObject bindable, string value) => bindable.SetValue(Function4TextProperty, value);
-
     public static readonly BindableProperty Function1EnabledProperty = BindableProperty.CreateAttached(
         "Function1Enabled",
         typeof(bool),
@@ -101,55 +90,27 @@ public static class ShellProperty
 
     public static void SetFunction2Enabled(BindableObject bindable, bool value) => bindable.SetValue(Function2EnabledProperty, value);
 
-    public static readonly BindableProperty Function3EnabledProperty = BindableProperty.CreateAttached(
-        "Function3Enabled",
-        typeof(bool),
-        typeof(ShellProperty),
-        false,
-        propertyChanged: PropertyChanged);
-
-    public static bool GetFunction3Enabled(BindableObject bindable) => (bool)bindable.GetValue(Function3EnabledProperty);
-
-    public static void SetFunction3Enabled(BindableObject bindable, bool value) => bindable.SetValue(Function3EnabledProperty, value);
-
-    public static readonly BindableProperty Function4EnabledProperty = BindableProperty.CreateAttached(
-        "Function4Enabled",
-        typeof(bool),
-        typeof(ShellProperty),
-        false,
-        propertyChanged: PropertyChanged);
-
-    public static bool GetFunction4Enabled(BindableObject bindable) => (bool)bindable.GetValue(Function4EnabledProperty);
-
-    public static void SetFunction4Enabled(BindableObject bindable, bool value) => bindable.SetValue(Function4EnabledProperty, value);
-
     public static void UpdateShellControl(IShellControl shell, BindableObject? bindable)
     {
         if (bindable is null)
         {
+            shell.TitleVisible.Value = true;
             shell.Title.Value = string.Empty;
             shell.FunctionVisible.Value = false;
             shell.Function1Text.Value = string.Empty;
             shell.Function2Text.Value = string.Empty;
-            shell.Function3Text.Value = string.Empty;
-            shell.Function4Text.Value = string.Empty;
             shell.Function1Enabled.Value = false;
             shell.Function2Enabled.Value = false;
-            shell.Function3Enabled.Value = false;
-            shell.Function4Enabled.Value = false;
         }
         else
         {
+            shell.TitleVisible.Value = GetTitleVisible(bindable);
             shell.Title.Value = GetTitle(bindable);
             shell.FunctionVisible.Value = GetFunctionVisible(bindable);
             shell.Function1Text.Value = GetFunction1Text(bindable);
             shell.Function2Text.Value = GetFunction2Text(bindable);
-            shell.Function3Text.Value = GetFunction3Text(bindable);
-            shell.Function4Text.Value = GetFunction4Text(bindable);
             shell.Function1Enabled.Value = GetFunction1Enabled(bindable);
             shell.Function2Enabled.Value = GetFunction2Enabled(bindable);
-            shell.Function3Enabled.Value = GetFunction3Enabled(bindable);
-            shell.Function4Enabled.Value = GetFunction4Enabled(bindable);
         }
     }
 }

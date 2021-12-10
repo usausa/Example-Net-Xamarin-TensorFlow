@@ -1,19 +1,17 @@
 namespace LegoDetect.FormsApp.Models;
 
-using System.Drawing;
-
 public class DetectResult
 {
     public string Label { get; }
 
     public float Score { get; }
 
-    public Rectangle Rectangle { get; }
+    public Bounds Bounds { get; }
 
-    public DetectResult(string label, float score, Rectangle rectangle)
+    public DetectResult(string label, float score, Bounds bounds)
     {
         Label = label;
         Score = score;
-        Rectangle = rectangle;
+        Bounds = bounds;
     }
 }

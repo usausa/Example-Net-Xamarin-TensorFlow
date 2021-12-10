@@ -47,8 +47,6 @@ public class AppViewModelBase : ViewModelBase, INavigatorAware, INavigationEvent
             ShellEvent.Back => OnNotifyBackAsync(),
             ShellEvent.Function1 => OnNotifyFunction1(),
             ShellEvent.Function2 => OnNotifyFunction2(),
-            ShellEvent.Function3 => OnNotifyFunction3(),
-            ShellEvent.Function4 => OnNotifyFunction4(),
             _ => Task.CompletedTask
         };
     }
@@ -58,8 +56,4 @@ public class AppViewModelBase : ViewModelBase, INavigatorAware, INavigationEvent
     protected virtual Task OnNotifyFunction1() => Task.CompletedTask;
 
     protected virtual Task OnNotifyFunction2() => Task.CompletedTask;
-
-    protected virtual Task OnNotifyFunction3() => Task.CompletedTask;
-
-    protected virtual Task OnNotifyFunction4() => Task.CompletedTask;
 }

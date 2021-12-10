@@ -14,24 +14,20 @@ public class MainPageViewModel : ViewModelBase, IShellControl
 
     public INavigator Navigator { get; }
 
+    public NotificationValue<bool> TitleVisible { get; } = new();
+
     public NotificationValue<string> Title { get; } = new();
 
     public NotificationValue<bool> FunctionVisible { get; } = new();
 
     public NotificationValue<string> Function1Text { get; } = new();
     public NotificationValue<string> Function2Text { get; } = new();
-    public NotificationValue<string> Function3Text { get; } = new();
-    public NotificationValue<string> Function4Text { get; } = new();
 
     public NotificationValue<bool> Function1Enabled { get; } = new();
     public NotificationValue<bool> Function2Enabled { get; } = new();
-    public NotificationValue<bool> Function3Enabled { get; } = new();
-    public NotificationValue<bool> Function4Enabled { get; } = new();
 
     public ICommand Function1Command { get; }
     public ICommand Function2Command { get; }
-    public ICommand Function3Command { get; }
-    public ICommand Function4Command { get; }
 
     //--------------------------------------------------------------------------------
     // Constructor
@@ -53,13 +49,5 @@ public class MainPageViewModel : ViewModelBase, IShellControl
                 () => Navigator.NotifyAsync(ShellEvent.Function2),
                 () => Function2Enabled.Value)
             .Observe(Function2Enabled);
-        Function3Command = MakeAsyncCommand(
-                () => Navigator.NotifyAsync(ShellEvent.Function3),
-                () => Function3Enabled.Value)
-            .Observe(Function3Enabled);
-        Function4Command = MakeAsyncCommand(
-                () => Navigator.NotifyAsync(ShellEvent.Function4),
-                () => Function4Enabled.Value)
-            .Observe(Function4Enabled);
     }
 }

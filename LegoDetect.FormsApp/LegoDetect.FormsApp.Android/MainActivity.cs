@@ -51,9 +51,6 @@ public class MainActivity : Xamarin.Forms.Platform.Android.FormsAppCompatActivit
         TaskScheduler.UnobservedTaskException += (_, args) => CrashReport(args.Exception);
         AndroidEnvironment.UnhandledExceptionRaiser += (_, args) => CrashReport(args.Exception);
 
-        // Barcode
-        ZXing.Net.Mobile.Forms.Android.Platform.Init();
-
         // Service
         deviceManager = new DeviceManager(this);
 

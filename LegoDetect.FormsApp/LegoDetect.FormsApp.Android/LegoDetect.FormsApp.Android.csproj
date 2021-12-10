@@ -97,12 +97,6 @@
     <PackageReference Include="Xamarin.TensorFlow.Lite.Gpu">
       <Version>2.5.0.1</Version>
     </PackageReference>
-    <PackageReference Include="ZXing.Net.Mobile">
-      <Version>2.4.1</Version>
-    </PackageReference>
-    <PackageReference Include="ZXing.Net.Mobile.Forms">
-      <Version>2.4.1</Version>
-    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\Device\DeviceManager.cs" />

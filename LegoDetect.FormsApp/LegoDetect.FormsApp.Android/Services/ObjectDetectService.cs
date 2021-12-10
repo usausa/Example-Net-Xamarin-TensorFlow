@@ -132,11 +132,13 @@ public class ObjectDetectService : IObjectDetectService
                 results[i] = new DetectResult(
                     labels[(int)detectedClasses[i]],
                     detectedScores[i],
-                    new System.Drawing.Rectangle(
-                        (int)Math.Ceiling(detectedBoxes[i][1] * bitmap.Width),
-                        (int)Math.Ceiling(detectedBoxes[i][0] * bitmap.Height),
-                        (int)Math.Ceiling(detectedBoxes[i][3] * bitmap.Width),
-                        (int)Math.Ceiling(detectedBoxes[i][2] * bitmap.Height)));
+                    new Bounds
+                    {
+                        Left = detectedBoxes[i][1] * bitmap.Width,
+                        Top = detectedBoxes[i][0] * bitmap.Height,
+                        Width = detectedBoxes[i][3] * bitmap.Width,
+                        Height = detectedBoxes[i][2] * bitmap.Height
+                    });
             }
 
             Trace.EndSection();

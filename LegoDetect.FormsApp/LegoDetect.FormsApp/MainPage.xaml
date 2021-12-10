@@ -11,8 +11,7 @@
              sr:BindingContextResolver.Type="{x:Type local:MainPageViewModel}"
              ios:Page.UseSafeArea="true"
              IsEnabled="{Binding ApplicationState.IsBusy, Converter={StaticResource ReverseConverter}}"
-             IsBusy="{Binding ApplicationState.IsBusy}"
-             Visual="Material">
+             IsBusy="{Binding ApplicationState.IsBusy}">
 
     <ContentPage.Behaviors>
         <shell:ShellUpdateBehavior Navigator="{Binding Navigator, Mode=OneTime}" />
@@ -47,8 +46,6 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
             <Button Grid.Column="0"
@@ -59,14 +56,6 @@
                     Style="{StaticResource FunctionButton2}"
                     Command="{Binding Function2Command}"
                     Text="{Binding Function2Text.Value}" />
-            <Button Grid.Column="2"
-                    Style="{StaticResource FunctionButton3}"
-                    Command="{Binding Function3Command}"
-                    Text="{Binding Function3Text.Value}" />
-            <Button Grid.Column="3"
-                    Style="{StaticResource FunctionButton4}"
-                    Command="{Binding Function4Command}"
-                    Text="{Binding Function4Text.Value}" />
         </Grid>
     </Grid>
 

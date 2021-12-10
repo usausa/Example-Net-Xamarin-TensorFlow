@@ -2,6 +2,8 @@ namespace LegoDetect.FormsApp;
 
 using System.Reflection;
 
+using Components.Device;
+
 using Smart.Forms.Resolver;
 using Smart.Navigation;
 using Smart.Resolver;
@@ -9,7 +11,6 @@ using Smart.Resolver;
 using LegoDetect.FormsApp.Components.Dialog;
 using LegoDetect.FormsApp.Helpers;
 using LegoDetect.FormsApp.Modules;
-using LegoDetect.FormsApp.State;
 
 using XamarinFormsComponents;
 
@@ -27,12 +28,26 @@ public partial class App
         resolver = CreateResolver(provider);
         ResolveProvider.Default.UseSmartResolver(resolver);
 
+        var deviceManager = resolver.Get<IDeviceManager>();
+
         // Config Navigator
         navigator = new NavigatorConfig()
             .UseFormsNavigationProvider()
             .UseResolver(resolver)
             .UseIdViewMapper(m => m.AutoRegister(Assembly.GetExecutingAssembly().ExportedTypes))
             .ToNavigator();
+        navigator.Navigating += (_, args) =>
+        {
+            var attr = args.ToView.GetType().GetCustomAttribute<OrientationAttribute>();
+            if ((attr is not null) && (attr.Orientation == Orientation.Landscape))
+            {
+                deviceManager.SetOrientation(Orientation.Landscape);
+            }
+            else
+            {
+                deviceManager.SetOrientation(Orientation.Portrait);
+            }
+        };
         navigator.Navigated += (_, args) =>
         {
             // for debug
@@ -63,9 +78,6 @@ public partial class App
         config.BindSingleton<INavigator>(_ => navigator);
 
         config.BindSingleton<ApplicationState>();
-
-        config.BindSingleton<Configuration>();
-        config.BindSingleton<Session>();
 
         provider.RegisterComponents(config);
 

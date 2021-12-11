@@ -1,6 +1,7 @@
 namespace LegoDetect.FormsApp.Controls;
 
 using System;
+using System.Diagnostics;
 
 using Models;
 
@@ -65,10 +66,10 @@ public class DetectCanvasView : SKCanvasView
             foreach (var result in DetectResult)
             {
                 var scaledBoxLeft = left + (scaleWidth * result.Bounds.Left);
-                var scaledBoxWidth = scaleWidth * result.Bounds.Width;
                 var scaledBoxTop = top + (scaleHeight * result.Bounds.Top);
-                var scaledBoxHeight = scaleHeight * result.Bounds.Height;
-                using var path = CreateBoxPath(scaledBoxLeft, scaledBoxTop, scaledBoxWidth, scaledBoxHeight);
+                var scaledBoxRight = left + (scaleWidth * result.Bounds.Right);
+                var scaledBoxBottom = top + (scaleHeight * result.Bounds.Bottom);
+                using var path = CreateBoxPath(scaledBoxLeft, scaledBoxTop, scaledBoxRight, scaledBoxBottom);
                 using var strokePaint = new SKPaint
                 {
                     IsAntialias = true,
@@ -82,13 +83,13 @@ public class DetectCanvasView : SKCanvasView
         }
     }
 
-    private static SKPath CreateBoxPath(float left, float top, float width, float height)
+    private static SKPath CreateBoxPath(float left, float top, float right, float bottom)
     {
         var path = new SKPath();
         path.MoveTo(left, top);
-        path.LineTo(left + width, top);
-        path.LineTo(left + width, top + height);
-        path.LineTo(left, top + height);
+        path.LineTo(right, top);
+        path.LineTo(right, bottom);
+        path.LineTo(left, bottom);
         path.LineTo(left, top);
         return path;
     }

@@ -9,8 +9,7 @@
              x:Class="LegoDetect.FormsApp.Modules.Detect.DetectCameraView"
              x:DataType="{x:Type modules:DetectCameraViewModel}"
              sr:BindingContextResolver.Type="{x:Type modules:DetectCameraViewModel}"
-             shell:ShellProperty.TitleVisible="False"
-             shell:ShellProperty.FunctionVisible="False">
+             shell:ShellProperty.FunctionVisible="False" shell:ShellProperty.TitleVisible="False">
 
     <Grid Style="{StaticResource FillGrid}">
         <Grid.ColumnDefinitions>
@@ -21,8 +20,7 @@
         <xct:CameraView Grid.Column="0"
                         CameraOptions="Back" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <xct:CameraView.Behaviors>
-                <behaviors:CameraCaptureBehavior MaxSize="800"
-                                                 Request="{Binding CaptureRequest}" />
+                <behaviors:CameraCaptureBehavior Request="{Binding CaptureRequest}" />
             </xct:CameraView.Behaviors>
         </xct:CameraView>
 

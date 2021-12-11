@@ -70,9 +70,9 @@ public class ObjectDetectService : IObjectDetectService
 
             imageBuffer.Rewind();
             var offset = 0;
-            for (var i = 0; i < width; i++)
+            for (var i = 0; i < height; i++)
             {
-                for (var j = 0; j < height; j++)
+                for (var j = 0; j < width; j++)
                 {
                     var value = pixels[offset++];
                     imageBuffer.PutFloat(value >> 16 & 0xFF);
@@ -133,10 +133,10 @@ public class ObjectDetectService : IObjectDetectService
                     detectedScores[i],
                     new Bounds
                     {
-                        Left = detectedBoxes[i][1] * bitmap.Width,
-                        Top = detectedBoxes[i][0] * bitmap.Height,
-                        Width = detectedBoxes[i][3] * bitmap.Width,
-                        Height = detectedBoxes[i][2] * bitmap.Height
+                        Left = detectedBoxes[i][0],
+                        Top = detectedBoxes[i][1],
+                        Right = detectedBoxes[i][2],
+                        Bottom = detectedBoxes[i][3]
                     });
             }
 

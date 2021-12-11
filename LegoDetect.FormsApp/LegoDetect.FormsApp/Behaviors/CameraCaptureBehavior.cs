@@ -3,7 +3,6 @@ namespace LegoDetect.FormsApp.Behaviors;
 using Smart.Forms.Interactivity;
 using Smart.Forms.Messaging;
 
-using LegoDetect.FormsApp.Helpers;
 using LegoDetect.FormsApp.Messaging;
 
 using Xamarin.CommunityToolkit.UI.Views;
@@ -18,34 +17,10 @@ public sealed class CameraCaptureBehavior : BehaviorBase<CameraView>
         null,
         propertyChanged: HandleRequestPropertyChanged);
 
-    public static readonly BindableProperty MaxSizeProperty = BindableProperty.Create(
-        nameof(MaxSize),
-        typeof(int),
-        typeof(CameraCaptureBehavior),
-        1024);
-
-    public static readonly BindableProperty QualityProperty = BindableProperty.Create(
-        nameof(Quality),
-        typeof(int),
-        typeof(CameraCaptureBehavior),
-        85);
-
     public IEventRequest<CameraCaptureEventArgs>? Request
     {
         get => (IEventRequest<CameraCaptureEventArgs>)GetValue(RequestProperty);
         set => SetValue(RequestProperty, value);
-    }
-
-    public int MaxSize
-    {
-        get => (int)GetValue(MaxSizeProperty);
-        set => SetValue(MaxSizeProperty, value);
-    }
-
-    public int Quality
-    {
-        get => (int)GetValue(QualityProperty);
-        set => SetValue(QualityProperty, value);
     }
 
     protected override void OnDetachingFrom(CameraView bindable)
@@ -83,21 +58,13 @@ public sealed class CameraCaptureBehavior : BehaviorBase<CameraView>
 
     private void EventRequestOnRequested(object sender, CameraCaptureEventArgs ea)
     {
-        async void MediaCaptured(object s, MediaCapturedEventArgs e)
+        void MediaCaptured(object s, MediaCapturedEventArgs e)
         {
             var camera = (CameraView)s;
             camera.MediaCaptured -= MediaCaptured;
             camera.MediaCaptureFailed -= MediaCaptureFailed;
 
-            if (e.ImageData is not null)
-            {
-                var image = await ImageHelper.NormalizeImageAsync(e.ImageData, MaxSize, e.Rotation, Quality);
-                ea.CompletionSource.TrySetResult(image);
-            }
-            else
-            {
-                ea.CompletionSource.TrySetResult(null);
-            }
+            ea.CompletionSource.TrySetResult(e.ImageData ?? null);
         }
 
         void MediaCaptureFailed(object s, string e)

@@ -1,8 +1,5 @@
 namespace LegoDetect.FormsApp.Controls;
 
-using System;
-using System.Diagnostics;
-
 using Models;
 
 using SkiaSharp;
@@ -49,13 +46,26 @@ public class DetectCanvasView : SKCanvasView
             return;
         }
 
-        var scale = Math.Min(info.Width / (float)image.Width, info.Height / (float)image.Height);
-
-        var scaleWidth = scale * image.Width;
-        var scaleHeight = scale * image.Height;
-
-        var left = (info.Width - scaleWidth) / 2;
-        var top = (info.Height - scaleHeight) / 2;
+        var imageAspect = (float)image.Width / image.Height;
+        var infoAspect = (float)info.Width / info.Height;
+        float scaleWidth;
+        float scaleHeight;
+        float left;
+        float top;
+        if (infoAspect > imageAspect)
+        {
+            scaleHeight = info.Height;
+            scaleWidth = info.Height * imageAspect;
+            top = 0;
+            left = (info.Width - scaleWidth) / 2;
+        }
+        else
+        {
+            scaleWidth = info.Width;
+            scaleHeight = scaleWidth * imageAspect;
+            left = 0;
+            top = (info.Height - scaleHeight) / 2;
+        }
 
         // Draw bitmap
         canvas.DrawBitmap(image, new SKRect(left, top, left + scaleWidth, top + scaleHeight));

@@ -12,12 +12,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Converters\**" />
-    <EmbeddedResource Remove="Converters\**" />
-    <None Remove="Converters\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="Resources\MaterialIcons-Regular.ttf" />
   </ItemGroup>
 
@@ -37,7 +31,6 @@
     <PackageReference Include="Usa.Smart.Forms" Version="2.2.2" />
     <PackageReference Include="Usa.Smart.Forms.Reactive" Version="2.2.2" />
     <PackageReference Include="Usa.Smart.Forms.Resolver" Version="2.2.2" />
-    <PackageReference Include="Usa.Smart.Mapper" Version="0.3.2" />
     <PackageReference Include="Usa.Smart.Navigation" Version="2.2.3" />
     <PackageReference Include="Usa.Smart.Navigation.Forms" Version="2.2.3" />
     <PackageReference Include="Usa.Smart.Navigation.Resolver" Version="2.2.3" />
@@ -51,17 +44,6 @@
     <PackageReference Include="XamarinFormsComponents.Core" Version="2.0.4" />
     <PackageReference Include="XamarinFormsComponents.Dialogs" Version="2.0.4" />
     <PackageReference Include="XamarinFormsComponents.Resolver.Smart" Version="2.0.4" />
-    <PackageReference Include="XamarinFormsComponents.Serializers" Version="2.0.4" />
-    <PackageReference Include="XamarinFormsComponents.Settings" Version="2.0.4" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="Modules\Detect\DetectCameraView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Modules\Detect\DetectResultView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

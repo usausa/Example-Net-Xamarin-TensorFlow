@@ -71,8 +71,6 @@ public partial class App
         config.UseXamarinFormsComponents(adapter =>
         {
             adapter.AddDialogs();
-            adapter.AddJsonSerializer();
-            adapter.AddSettings();
         });
 
         config.BindSingleton<INavigator>(_ => navigator);

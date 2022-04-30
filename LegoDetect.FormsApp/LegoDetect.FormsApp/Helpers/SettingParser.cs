@@ -11,8 +11,7 @@ public sealed class SettingParser
     public SettingParser(string data)
     {
         using var reader = new StringReader(data);
-        string line;
-        while ((line = reader.ReadLine()) != null)
+        while (reader.ReadLine() is { } line)
         {
             var index = line.IndexOf('=', StringComparison.Ordinal);
             if (index > 0)

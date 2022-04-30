@@ -1,6 +1,6 @@
 namespace LegoDetect.FormsApp.Behaviors;
 
-using Controls;
+using LegoDetect.FormsApp.Controls;
 
 using Smart;
 using Smart.Forms.Interactivity;

@@ -2,12 +2,11 @@ namespace LegoDetect.FormsApp;
 
 using System.Reflection;
 
-using Components.Device;
-
 using Smart.Forms.Resolver;
 using Smart.Navigation;
 using Smart.Resolver;
 
+using LegoDetect.FormsApp.Components.Device;
 using LegoDetect.FormsApp.Components.Dialog;
 using LegoDetect.FormsApp.Helpers;
 using LegoDetect.FormsApp.Modules;

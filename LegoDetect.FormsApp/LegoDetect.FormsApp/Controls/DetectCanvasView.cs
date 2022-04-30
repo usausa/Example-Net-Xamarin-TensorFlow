@@ -1,6 +1,6 @@
 namespace LegoDetect.FormsApp.Controls;
 
-using Models;
+using LegoDetect.FormsApp.Models;
 
 using SkiaSharp;
 using SkiaSharp.Views.Forms;

@@ -6,10 +6,8 @@ using System.Windows.Input;
 
 using LegoDetect.FormsApp.Components.Dialog;
 using LegoDetect.FormsApp.Messaging;
-
-using Models;
-
-using Services;
+using LegoDetect.FormsApp.Models;
+using LegoDetect.FormsApp.Services;
 
 using Smart.ComponentModel;
 using Smart.Forms.ViewModels;

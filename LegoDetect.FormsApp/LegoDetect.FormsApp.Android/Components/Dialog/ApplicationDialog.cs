@@ -21,19 +21,19 @@ public class ApplicationDialog : ApplicationDialogBase
         this.activity = activity;
     }
 
-    public async override ValueTask Information(string message, string? title = null, string ok = "OK")
+    public override async ValueTask Information(string message, string? title = null, string ok = "OK")
     {
         var dialog = new InformationDialog(activity);
         await dialog.ShowAsync(message, title, ok);
     }
 
-    public async override ValueTask<bool> Confirm(string message, bool defaultPositive = false, string? title = null, string ok = "OK", string cancel = "Cancel")
+    public override async ValueTask<bool> Confirm(string message, bool defaultPositive = false, string? title = null, string ok = "OK", string cancel = "Cancel")
     {
         var dialog = new ConfirmDialog(activity);
         return await dialog.ShowAsync(message, defaultPositive, title, ok, cancel);
     }
 
-    public async override ValueTask<int> Select(string[] items, int selected = -1, string? title = null)
+    public override async ValueTask<int> Select(string[] items, int selected = -1, string? title = null)
     {
         var dialog = new SelectDialog(activity);
         return await dialog.ShowAsync(items, selected, title);

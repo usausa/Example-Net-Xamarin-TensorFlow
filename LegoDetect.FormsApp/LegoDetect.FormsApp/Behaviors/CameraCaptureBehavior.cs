@@ -14,7 +14,6 @@ public sealed class CameraCaptureBehavior : BehaviorBase<CameraView>
         nameof(Request),
         typeof(IEventRequest<CameraCaptureEventArgs>),
         typeof(CameraCaptureBehavior),
-        null,
         propertyChanged: HandleRequestPropertyChanged);
 
     public IEventRequest<CameraCaptureEventArgs>? Request

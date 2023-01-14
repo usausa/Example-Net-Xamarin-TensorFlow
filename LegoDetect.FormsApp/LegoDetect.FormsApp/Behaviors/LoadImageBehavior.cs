@@ -14,7 +14,6 @@ public sealed class LoadImageBehavior : BehaviorBase<DetectCanvasView>
         nameof(Request),
         typeof(IEventRequest<EventArgs<byte[]>>),
         typeof(LoadImageBehavior),
-        null,
         propertyChanged: HandleRequestPropertyChanged);
 
     public IEventRequest<EventArgs<byte[]>>? Request

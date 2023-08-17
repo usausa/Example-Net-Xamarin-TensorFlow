@@ -37,7 +37,9 @@ public class DetectCanvasView : SKCanvasView
         var canvas = e.Surface.Canvas;
 
         // Fill background
-        using var backgroundPaint = new SKPaint { Style = SKPaintStyle.Fill, Color = SKColors.White };
+        using var backgroundPaint = new SKPaint();
+        backgroundPaint.Style = SKPaintStyle.Fill;
+        backgroundPaint.Color = SKColors.White;
 
         canvas.DrawRect(info.Rect, backgroundPaint);
 
@@ -80,13 +82,11 @@ public class DetectCanvasView : SKCanvasView
                 var scaledBoxRight = left + (scaleWidth * result.Bounds.Right);
                 var scaledBoxBottom = top + (scaleHeight * result.Bounds.Bottom);
                 using var path = CreateBoxPath(scaledBoxLeft, scaledBoxTop, scaledBoxRight, scaledBoxBottom);
-                using var strokePaint = new SKPaint
-                {
-                    IsAntialias = true,
-                    Style = SKPaintStyle.Stroke,
-                    Color = result.Score > 0.75 ? SKColors.Red : result.Score > 0.5 ? SKColors.OrangeRed : SKColors.Yellow,
-                    StrokeWidth = 3
-                };
+                using var strokePaint = new SKPaint();
+                strokePaint.IsAntialias = true;
+                strokePaint.Style = SKPaintStyle.Stroke;
+                strokePaint.Color = result.Score > 0.75 ? SKColors.Red : result.Score > 0.5 ? SKColors.OrangeRed : SKColors.Yellow;
+                strokePaint.StrokeWidth = 3;
 
                 canvas.DrawPath(path, strokePaint);
             }

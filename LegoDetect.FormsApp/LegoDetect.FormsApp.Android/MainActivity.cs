@@ -39,7 +39,7 @@ public class MainActivity : Xamarin.Forms.Platform.Android.FormsAppCompatActivit
 {
     private DeviceManager deviceManager = default!;
 
-    protected override void OnCreate(Bundle savedInstanceState)
+    protected override void OnCreate(Bundle? savedInstanceState)
     {
         SetTheme(Resource.Style.MainTheme);
         base.OnCreate(savedInstanceState);
